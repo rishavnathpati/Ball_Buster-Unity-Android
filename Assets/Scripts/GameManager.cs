@@ -8,13 +8,18 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int score = 0;
-    public GameObject WinText;
-    public bool isPaused = false;
-    
+    public GameObject WinText, ResumegameCanvas,pauseButton;
+    public Button Pause;
+    public Button Resume;
+
+    void Start()
+    {
+        
+    }
     public void ScoreUp()
     {
         score++;
-        if (score >= 2)
+        if (score >= 6)
         {
             Win();
         }
@@ -38,18 +43,18 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        if(isPaused)
-        {
-            Time.timeScale = 1;
-            isPaused = false;
-            Restart();
-        }
-        else
-        {
-            Time.timeScale = 0;
-            isPaused = true;
-            
-        }
+        Time.timeScale = 0;
+        ResumegameCanvas.gameObject.SetActive(true);
+        pauseButton.gameObject.SetActive(false);
+
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        ResumegameCanvas.gameObject.SetActive(false);
+        pauseButton.gameObject.SetActive(true);
+
     }
 
 }
