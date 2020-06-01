@@ -1,21 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int score = 0;
-    public GameObject WinText, ResumegameCanvas,pauseButton;
+    int score = 0;
+    public GameObject WinText, ResumegameCanvas, pauseButton;
     public Button Pause;
     public Button Resume;
+    public int balls;
+    public string nextLevel;
 
     public void ScoreUp()
     {
         score++;
-        if (score >= 6)
+        if (score >= balls)
         {
             Win();
         }
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     void NextLevel()
     {
-        SceneManager.LoadScene("Game 2");
+        SceneManager.LoadScene(nextLevel.ToString());
     }
 
     public void Restart()
