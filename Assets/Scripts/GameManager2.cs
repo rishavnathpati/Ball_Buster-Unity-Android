@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager2 : MonoBehaviour
 {
     public static GameManager instance;
     public int score = 0;
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public void ScoreUp()
     {
         score++;
-        if (score >= 6)
+        if (score >= 8)
         {
             Win();
         }
