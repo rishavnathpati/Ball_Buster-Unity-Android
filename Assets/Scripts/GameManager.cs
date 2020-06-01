@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public Button Pause;
     public Button Resume;
     public int balls;
-    public string nextLevel;
+    public string currentLevel, nextLevel;
+    
 
     public void ScoreUp()
     {
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+        SceneManager.LoadScene(currentLevel.ToString());
     }
 
     public void PauseGame()
